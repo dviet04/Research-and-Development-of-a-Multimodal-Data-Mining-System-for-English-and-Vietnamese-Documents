@@ -94,7 +94,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
       
 ### 4. Kịch bản thử nghiệm
 
-    | Các bước | Kịch bản 1 | Kịch bản 2 | Kịch bản 3 |
+| Các bước | Kịch bản 1 | Kịch bản 2 | Kịch bản 3 |
     |---------|------------|------------|------------|
     | Phân tích tài liệu | Phân tích lần lượt bằng Docling | Phân tích song song bằng EasyOCR | Phân tích song song bằng Docling |
     | Chia khối | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy |
@@ -110,7 +110,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
 ### 5. Kết quả đạt được
 Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
-    | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
+| Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
     |-------------------|--------|---------|--------------|---------|
     | Gemini 1.5 Flash  | 27.1   | 41.5    | 69.20        | 58.12   |
     | Gemini 1.5 Pro    | 27.0   | 40.4    | 69.05        | 64.68   |
@@ -122,7 +122,7 @@ Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ
 
 Thông lượng:
 
-    | Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
+| Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
     |-------------------|---------------------------|
     | Kịch bản 1        | 10.67 trang/giây          |
     | Kịch bản 2        | 4.56 trang/giây           |
