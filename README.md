@@ -2,16 +2,15 @@
 📘 Nghiên cứu và phát triển hệ thống khai thác dữ liệu đa phương thức trong tài liệu tiếng Anh và tiếng Việt dựa trên mô hình trí tuệ nhân tạo đa tác tử
 
 Hệ thống này được thiết kế nhằm phân tích – tách trích – hiểu – truy vấn – hỏi đáp trên các tài liệu học thuật đa phương thức (văn bản, hình ảnh, bảng, sơ đồ, công thức Toán), hỗ trợ tiếng Việt và tiếng Anh, dựa trên kiến trúc AI Multi-Agent (đa tác tử) và các mô hình hiện đại.
-
 Mục tiêu:
 
-    📄 Hiểu nội dung văn bản
-    🧮 Nhận diện & chuyển đổi công thức (OCR → LaTeX)
-    🖼 Phân tích hình ảnh và sinh mô tả
-    🔍 Xây dựng cơ sở tri thức từ tài liệu
-    💬 Trả lời câu hỏi bằng RAG (Retrieval-Augmented Generation)
-    ⚡ Đa ngôn ngữ (Việt/Anh)
-    🧠 Hoạt động theo mô hình tác tử LangGraph
+- 📄 Hiểu nội dung văn bản
+- 🧮 Nhận diện & chuyển đổi công thức (OCR → LaTeX)
+- 🖼 Phân tích hình ảnh và sinh mô tả
+- 🔍 Xây dựng cơ sở tri thức từ tài liệu
+- 💬 Trả lời câu hỏi bằng RAG (Retrieval-Augmented Generation)
+- ⚡ Đa ngôn ngữ (Việt/Anh)
+- 🧠 Hoạt động theo mô hình tác tử LangGraph
 
 ### 1. Kiến trúc tổng thể
 Hệ thống gồm các thành phần:
@@ -81,16 +80,17 @@ Hệ thống được thiết kế dưới dạng các tác tử:
    → Dựa trên dữ liệu truy xuất  
    → Trả lời bằng tiếng Việt hoặc tiếng Anh theo thói quen người dùng
 
-### 3. **Công nghệ sử dụng**
-    - Trích xuất PDF: Docling
-    - Nhận dạng công thức: Pix2Tex
-    - Caption ảnh: Qwen3-VL
-    - Embedding text: M3 Embedding
-    - Embedding công thức: MathBERT
-    - Vector DB: FAISS
-    - LLM trả lời: Qwen3
-    - Multi-Agent Orchestration: LangGraph
-    - Giao diện: Upload → Tạo agent → Chat
+### 3. Công nghệ sử dụng
+
+- Trích xuất PDF: Docling
+- Nhận dạng công thức: Pix2Tex
+- Caption ảnh: Qwen3-VL
+- Embedding text: M3 Embedding
+- Embedding công thức: MathBERT
+- Vector DB: FAISS
+- LLM trả lời: Qwen3
+- Multi-Agent Orchestration: LangGraph
+- Giao diện: Upload → Tạo agent → Chat
       
 ### 4. Kịch bản thử nghiệm
 
