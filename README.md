@@ -81,7 +81,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
    → Dựa trên dữ liệu truy xuất  
    → Trả lời bằng tiếng Việt hoặc tiếng Anh theo thói quen người dùng
 
-6. Công nghệ sử dụng
+6. **Công nghệ sử dụng**
     - Trích xuất PDF: Docling
     - Nhận dạng công thức: Pix2Tex
     - Caption ảnh: Qwen3-VL
