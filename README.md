@@ -104,6 +104,7 @@ Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ
     | Kịch bản 3        | 40.9   | 30.1    | 88.46        | 59.56   |
 
 Thông lượng:
+
     | Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
     |-------------------|---------------------------|
     | Kịch bản 1        | 10.67 trang/giây          |
