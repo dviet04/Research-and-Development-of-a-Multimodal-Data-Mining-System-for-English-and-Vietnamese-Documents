@@ -13,7 +13,7 @@ Mục tiêu:
     ⚡ Đa ngôn ngữ (Việt/Anh)
     🧠 Hoạt động theo mô hình tác tử LangGraph
 
-1. Kiến trúc tổng thể
+### 1. Kiến trúc tổng thể
 Hệ thống gồm các thành phần:
 
     1. Docling — xử lý tài liệu
@@ -59,7 +59,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
 - **🧪 Fusion Agent**: Hợp nhất kết quả truy vấn (Text + Formula + Vision)  
 - **💬 Answer Agent**: Dùng Qwen3 sinh câu trả lời (RAG)
 
-### 4. Quy trình hoạt động
+### 2. Quy trình hoạt động
 
 1. **Người dùng upload tài liệu**  
    → Docling phân tích → sinh text, tables, figures, formulas
@@ -81,7 +81,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
    → Dựa trên dữ liệu truy xuất  
    → Trả lời bằng tiếng Việt hoặc tiếng Anh theo thói quen người dùng
 
-6. **Công nghệ sử dụng**
+### 3. **Công nghệ sử dụng**
     - Trích xuất PDF: Docling
     - Nhận dạng công thức: Pix2Tex
     - Caption ảnh: Qwen3-VL
@@ -91,8 +91,23 @@ Hệ thống được thiết kế dưới dạng các tác tử:
     - LLM trả lời: Qwen3
     - Multi-Agent Orchestration: LangGraph
     - Giao diện: Upload → Tạo agent → Chat
+      
+### 4. Kịch bản thử nghiệm
 
-7. Kết quả đạt được
+    | Các bước | Kịch bản 1 | Kịch bản 2 | Kịch bản 3 |
+    |---------|------------|------------|------------|
+    | Phân tích tài liệu | Phân tích lần lượt bằng Docling | Phân tích song song bằng EasyOCR | Phân tích song song bằng Docling |
+    | Chia khối | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy |
+    | Hợp nhất | Hợp nhất các khối văn bản và các khối công thức | Hợp nhất các khối văn bản | Hợp nhất các khối văn bản và các khối công thức |
+    | Nhúng văn bản | Mô hình nhúng M3 | Mô hình nhúng M3 | Mô hình nhúng M3 |
+    | Nhúng công thức | Mô hình MathBERT | × | Mô hình MathBERT |
+    | Tạo cơ sở dữ liệu văn bản | FAISS | FAISS | FAISS |
+    | Tạo cơ sở dữ liệu công thức | FAISS | × | FAISS |
+    | Truy xuất thông tin | ✓ | ✓ | ✓ |
+    | Chuẩn hóa thông tin truy xuất | × | ✓ | ✓ |
+    | Trả lời | Qwen3-4B | Qwen3-4B | Qwen3-4B |
+
+### 5. Kết quả đạt được
     Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
     | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
