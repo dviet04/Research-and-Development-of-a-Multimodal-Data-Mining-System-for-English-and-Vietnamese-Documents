@@ -15,39 +15,39 @@ Mục tiêu:
 ### 1. Kiến trúc tổng thể
 Hệ thống gồm các thành phần:
 
-    1. Docling — xử lý tài liệu
-        - Trích văn bản PDF/docx
-        - Tách bảng, hình, chú thích
-        - Phân tích cấu trúc (mục lục, section, heading)
-        - Chuẩn hoá đầu ra thành Docling JSON
-    
-    2. Pix2Tex — OCR công thức sang LaTeX
-        - Nhận diện công thức trong ảnh
-        - Xuất LaTeX chính xác
-        - Tối ưu cho tài liệu khoa học
-    
-    3. Qwen3-VL — sinh caption cho hình ảnh
-        - Nhận diện nội dung ảnh
-        - Tạo mô tả ngữ nghĩa giàu thông tin
-        - Hỗ trợ tiếng Việt & tiếng Anh
-        - Tích hợp vào quá trình RAG
+1. **Docling — xử lý tài liệu**
+   - Trích văn bản PDF/docx
+   - Tách bảng, hình, chú thích
+   - Phân tích cấu trúc (mục lục, section, heading)
+   - Chuẩn hoá đầu ra thành Docling JSON
 
-    4. Mô hình nhúng (Embedding)
-        - M3 Embedding → Embedding văn bản
-        - MathBERT → Embedding công thức Toán
-        - Dùng cho truy vấn semantic search
-        - Tạo vector store qua FAISS
+2. **Pix2Tex — OCR công thức sang LaTeX**
+   - Nhận diện công thức trong ảnh
+   - Xuất LaTeX chính xác
+   - Tối ưu cho tài liệu khoa học
 
-    5. Vector database — FAISS
-        - Lưu trữ vector (text + công thức)
-        - Hỗ trợ RAG tốc độ cao
+3. **Qwen3-VL — sinh caption cho hình ảnh**
+   - Nhận diện nội dung ảnh
+   - Tạo mô tả ngữ nghĩa giàu thông tin
+   - Hỗ trợ tiếng Việt & tiếng Anh
+   - Tích hợp vào quá trình RAG
 
-    6. Qwen3 (LLM) — tác tử hội thoại & tổng hợp
-        - Tổng hợp kết quả truy xuất
-        - Trả lời tiếng Việt hoặc tiếng Anh
-        - Hỗ trợ reasoning (enable_thinking)
+4. **Mô hình nhúng (Embedding)**
+   - M3 Embedding → Embedding văn bản
+   - MathBERT → Embedding công thức Toán
+   - Dùng cho truy vấn semantic search
+   - Tạo vector store qua FAISS
 
-    7. LangGraph — hệ thống đa tác tử
+5. **Vector database — FAISS**
+   - Lưu trữ vector (text + công thức)
+   - Hỗ trợ RAG tốc độ cao
+
+6. **Qwen3 (LLM) — tác tử hội thoại & tổng hợp**
+   - Tổng hợp kết quả truy xuất
+   - Trả lời tiếng Việt hoặc tiếng Anh
+   - Hỗ trợ reasoning (enable_thinking)
+
+7. **LangGraph — hệ thống đa tác tử**
 
 Hệ thống được thiết kế dưới dạng các tác tử:
 
