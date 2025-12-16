@@ -59,38 +59,39 @@ Hệ thống gồm các thành phần:
     💬 Answer Agent:	Dùng Qwen3 sinh câu trả lời (RAG)
 
 4. Quy trình hoạt động
-    (1) Người dùng upload tài liệu
+   
+    (1) Người dùng upload tài liệu:
         → Docling phân tích → sinh text, tables, figures, formulas
 
-    (2) Tạo tác tử (agent)
+    (2) Tạo tác tử (agent):
         → Hệ thống xây dựng FAISS index
         → Tạo các embedding text + công thức
         → Nhúng hình ảnh (Qwen3-VL captioning)
 
-    (3) Người dùng đặt câu hỏi (VN/EN)
+    (3) Người dùng đặt câu hỏi (VN/EN):
         → Orchestrator phát hiện ngôn ngữ
         → Xác định cần truy xuất: văn bản, công thức hay hình ảnh
         → Chuyển yêu cầu cho Retrieval Agents
 
-    (4) Hợp nhất kết quả
+    (4) Hợp nhất kết quả:
         → Fusion Agent chuẩn hoá, xếp hạng, trộn nhiều nguồn
 
-    (5) Qwen3 sinh câu trả lời (RAG)
+    (5) Qwen3 sinh câu trả lời (RAG):
         → Dựa trên dữ liệu truy xuất
         → Trả bằng tiếng Việt hoặc tiếng Anh, tuỳ thói quen ngôn ngữ của người dùng
 
-5. Công nghệ sử dụng
-    Trích xuất PDF: Docling
-    Nhận dạng công thức: Pix2Tex
-    Caption ảnh: Qwen3-VL
-    Embedding text: M3 Embedding
-    Embedding công thức: MathBERT
-    Vector DB: FAISS
-    LLM trả lời: Qwen3
-    Multi-Agent Orchestration: LangGraph
-    Giao diện: Upload → Tạo agent → Chat
+6. Công nghệ sử dụng
+    - Trích xuất PDF: Docling
+    - Nhận dạng công thức: Pix2Tex
+    - Caption ảnh: Qwen3-VL
+    - Embedding text: M3 Embedding
+    - Embedding công thức: MathBERT
+    - Vector DB: FAISS
+    - LLM trả lời: Qwen3
+    - Multi-Agent Orchestration: LangGraph
+    - Giao diện: Upload → Tạo agent → Chat
 
-6. Kết quả đạt được
+7. Kết quả đạt được
     Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
     | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
