@@ -94,37 +94,37 @@ Hệ thống được thiết kế dưới dạng các tác tử:
       
 ### 4. Kịch bản thử nghiệm
 
-| Các bước | Kịch bản 1 | Kịch bản 2 | Kịch bản 3 |
-|---------|------------|------------|------------|
-| Phân tích tài liệu | Phân tích lần lượt bằng Docling | Phân tích song song bằng EasyOCR | Phân tích song song bằng Docling |
-| Chia khối | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy |
-| Hợp nhất | Hợp nhất các khối văn bản và các khối công thức | Hợp nhất các khối văn bản | Hợp nhất các khối văn bản và các khối công thức |
-| Nhúng văn bản | Mô hình nhúng M3 | Mô hình nhúng M3 | Mô hình nhúng M3 |
-| Nhúng công thức | Mô hình MathBERT | × | Mô hình MathBERT |
-| Tạo cơ sở dữ liệu văn bản | FAISS | FAISS | FAISS |
-| Tạo cơ sở dữ liệu công thức | FAISS | × | FAISS |
-| Truy xuất thông tin | ✓ | ✓ | ✓ |
-| Chuẩn hóa thông tin truy xuất | × | ✓ | ✓ |
-| Trả lời | Qwen3-4B | Qwen3-4B | Qwen3-4B |
+    | Các bước | Kịch bản 1 | Kịch bản 2 | Kịch bản 3 |
+    |---------|------------|------------|------------|
+    | Phân tích tài liệu | Phân tích lần lượt bằng Docling | Phân tích song song bằng EasyOCR | Phân tích song song bằng Docling |
+    | Chia khối | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy | Chia khối theo kiểu đệ quy |
+    | Hợp nhất | Hợp nhất các khối văn bản và các khối công thức | Hợp nhất các khối văn bản | Hợp nhất các khối văn bản và các khối công thức |
+    | Nhúng văn bản | Mô hình nhúng M3 | Mô hình nhúng M3 | Mô hình nhúng M3 |
+    | Nhúng công thức | Mô hình MathBERT | × | Mô hình MathBERT |
+    | Tạo cơ sở dữ liệu văn bản | FAISS | FAISS | FAISS |
+    | Tạo cơ sở dữ liệu công thức | FAISS | × | FAISS |
+    | Truy xuất thông tin | ✓ | ✓ | ✓ |
+    | Chuẩn hóa thông tin truy xuất | × | ✓ | ✓ |
+    | Trả lời | Qwen3-4B | Qwen3-4B | Qwen3-4B |
 
 ### 5. Kết quả đạt được
     Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
-| Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
-|-------------------|--------|---------|--------------|---------|
-| Gemini 1.5 Flash  | 27.1   | 41.5    | 69.20        | 58.12   |
-| Gemini 1.5 Pro    | 27.0   | 40.4    | 69.05        | 64.68   |
-| GPT-4 Vision      | 27.0   | 39.5    | 67.24        | 63.37   |
-| GPT-4o            | 27.4   | 45.2    | 69.34        | 66.09   |
-| Kịch bản 1        | 35.8   | 26.8    | 87.67        | 27.82   |
-| Kịch bản 2        | 26.4   | 22.6    | 86.86        | 11.60   |
-| Kịch bản 3        | 40.9   | 30.1    | 88.46        | 59.56   |
+    | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
+    |-------------------|--------|---------|--------------|---------|
+    | Gemini 1.5 Flash  | 27.1   | 41.5    | 69.20        | 58.12   |
+    | Gemini 1.5 Pro    | 27.0   | 40.4    | 69.05        | 64.68   |
+    | GPT-4 Vision      | 27.0   | 39.5    | 67.24        | 63.37   |
+    | GPT-4o            | 27.4   | 45.2    | 69.34        | 66.09   |
+    | Kịch bản 1        | 35.8   | 26.8    | 87.67        | 27.82   |
+    | Kịch bản 2        | 26.4   | 22.6    | 86.86        | 11.60   |
+    | Kịch bản 3        | 40.9   | 30.1    | 88.46        | 59.56   |
 
 Thông lượng:
 
-| Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
-|-------------------|---------------------------|
-| Kịch bản 1        | 10.67 trang/giây          |
-| Kịch bản 2        | 4.56 trang/giây           |
-| Kịch bản 3        | 8.94 trang/giây           |
+    | Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
+    |-------------------|---------------------------|
+    | Kịch bản 1        | 10.67 trang/giây          |
+    | Kịch bản 2        | 4.56 trang/giây           |
+    | Kịch bản 3        | 8.94 trang/giây           |
 
