@@ -108,7 +108,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
     | Trả lời | Qwen3-4B | Qwen3-4B | Qwen3-4B |
 
 ### 5. Kết quả đạt được
-    Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
+Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
     | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
     |-------------------|--------|---------|--------------|---------|
