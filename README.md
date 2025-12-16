@@ -50,35 +50,36 @@ Hệ thống gồm các thành phần:
 
     7. LangGraph — hệ thống đa tác tử
 
-    Hệ thống được thiết kế dưới dạng các tác tử:
-    🎯 Orchestrator Agent:	Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn
-    📄 Text Retrieval Agent:	Truy xuất văn bản từ FAISS
-    🧮 Formula Retrieval Agent:	Truy xuất công thức bằng MathBERT
-    🖼 Vision Caption Agent:	Gọi Qwen3-VL sinh mô tả hình ảnh
-    🧪 Fusion Agent:	Hợp nhất kết quả truy vấn (Text + Formula + Vision)
-    💬 Answer Agent:	Dùng Qwen3 sinh câu trả lời (RAG)
+Hệ thống được thiết kế dưới dạng các tác tử:
 
-4. Quy trình hoạt động
-   
-    (1) Người dùng upload tài liệu:
-        → Docling phân tích → sinh text, tables, figures, formulas
+- **🎯 Orchestrator Agent**: Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn  
+- **📄 Text Retrieval Agent**: Truy xuất văn bản từ FAISS  
+- **🧮 Formula Retrieval Agent**: Truy xuất công thức bằng MathBERT  
+- **🖼 Vision Caption Agent**: Gọi Qwen3-VL sinh mô tả hình ảnh  
+- **🧪 Fusion Agent**: Hợp nhất kết quả truy vấn (Text + Formula + Vision)  
+- **💬 Answer Agent**: Dùng Qwen3 sinh câu trả lời (RAG)
 
-    (2) Tạo tác tử (agent):
-        → Hệ thống xây dựng FAISS index
-        → Tạo các embedding text + công thức
-        → Nhúng hình ảnh (Qwen3-VL captioning)
+### 4. Quy trình hoạt động
 
-    (3) Người dùng đặt câu hỏi (VN/EN):
-        → Orchestrator phát hiện ngôn ngữ
-        → Xác định cần truy xuất: văn bản, công thức hay hình ảnh
-        → Chuyển yêu cầu cho Retrieval Agents
+1. **Người dùng upload tài liệu**  
+   → Docling phân tích → sinh text, tables, figures, formulas
 
-    (4) Hợp nhất kết quả:
-        → Fusion Agent chuẩn hoá, xếp hạng, trộn nhiều nguồn
+2. **Tạo tác tử (agent)**  
+   → Xây dựng FAISS index  
+   → Tạo embedding cho text và công thức  
+   → Sinh caption cho hình ảnh bằng Qwen3-VL
 
-    (5) Qwen3 sinh câu trả lời (RAG):
-        → Dựa trên dữ liệu truy xuất
-        → Trả bằng tiếng Việt hoặc tiếng Anh, tuỳ thói quen ngôn ngữ của người dùng
+3. **Người dùng đặt câu hỏi (VN/EN)**  
+   → Orchestrator phát hiện ngôn ngữ  
+   → Xác định nguồn truy xuất (text / formula / image)  
+   → Gửi yêu cầu cho các Retrieval Agents
+
+4. **Hợp nhất kết quả**  
+   → Fusion Agent chuẩn hoá, xếp hạng và trộn nhiều nguồn dữ liệu
+
+5. **Qwen3 sinh câu trả lời (RAG)**  
+   → Dựa trên dữ liệu truy xuất  
+   → Trả lời bằng tiếng Việt hoặc tiếng Anh theo thói quen người dùng
 
 6. Công nghệ sử dụng
     - Trích xuất PDF: Docling
