@@ -14,72 +14,72 @@ Mục tiêu:
     🧠 Hoạt động theo mô hình tác tử LangGraph
 
 1. Kiến trúc tổng thể
- Hệ thống gồm các thành phần:
+Hệ thống gồm các thành phần:
 
     1. Docling — xử lý tài liệu
-    - Trích văn bản PDF/docx
-    - Tách bảng, hình, chú thích
-    - Phân tích cấu trúc (mục lục, section, heading)
-    - Chuẩn hoá đầu ra thành Docling JSON
+        - Trích văn bản PDF/docx
+        - Tách bảng, hình, chú thích
+        - Phân tích cấu trúc (mục lục, section, heading)
+        - Chuẩn hoá đầu ra thành Docling JSON
     
     2. Pix2Tex — OCR công thức sang LaTeX
-    - Nhận diện công thức trong ảnh
-    - Xuất LaTeX chính xác
-    - Tối ưu cho tài liệu khoa học
+        - Nhận diện công thức trong ảnh
+        - Xuất LaTeX chính xác
+        - Tối ưu cho tài liệu khoa học
     
     3. Qwen3-VL — sinh caption cho hình ảnh
-    - Nhận diện nội dung ảnh
-    - Tạo mô tả ngữ nghĩa giàu thông tin
-    - Hỗ trợ tiếng Việt & tiếng Anh
-    - Tích hợp vào quá trình RAG
+        - Nhận diện nội dung ảnh
+        - Tạo mô tả ngữ nghĩa giàu thông tin
+        - Hỗ trợ tiếng Việt & tiếng Anh
+        - Tích hợp vào quá trình RAG
 
     4. Mô hình nhúng (Embedding)
-    - M3 Embedding → Embedding văn bản
-    - MathBERT → Embedding công thức Toán
-    - Dùng cho truy vấn semantic search
-    - Tạo vector store qua FAISS
+        - M3 Embedding → Embedding văn bản
+        - MathBERT → Embedding công thức Toán
+        - Dùng cho truy vấn semantic search
+        - Tạo vector store qua FAISS
 
     5. Vector database — FAISS
-    - Lưu trữ vector (text + công thức)
-    - Hỗ trợ RAG tốc độ cao
+        - Lưu trữ vector (text + công thức)
+        - Hỗ trợ RAG tốc độ cao
 
     6. Qwen3 (LLM) — tác tử hội thoại & tổng hợp
-    - Tổng hợp kết quả truy xuất
-    - Trả lời tiếng Việt hoặc tiếng Anh
-    - Hỗ trợ reasoning (enable_thinking)
+        - Tổng hợp kết quả truy xuất
+        - Trả lời tiếng Việt hoặc tiếng Anh
+        - Hỗ trợ reasoning (enable_thinking)
 
     7. LangGraph — hệ thống đa tác tử
 
     Hệ thống được thiết kế dưới dạng các tác tử:
-    🎯 Orchestrator Agent	Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn
-    📄 Text Retrieval Agent	Truy xuất văn bản từ FAISS
-    🧮 Formula Retrieval Agent	Truy xuất công thức bằng MathBERT
-    🖼 Vision Caption Agent	Gọi Qwen3-VL sinh mô tả hình ảnh
-    🧪 Fusion Agent	Hợp nhất kết quả truy vấn (Text + Formula + Vision)
-    💬 Answer Agent	Dùng Qwen3 sinh câu trả lời (RAG)
+    🎯 Orchestrator Agent:	Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn
+    📄 Text Retrieval Agent:	Truy xuất văn bản từ FAISS
+    🧮 Formula Retrieval Agent:	Truy xuất công thức bằng MathBERT
+    🖼 Vision Caption Agent:	Gọi Qwen3-VL sinh mô tả hình ảnh
+    🧪 Fusion Agent:	Hợp nhất kết quả truy vấn (Text + Formula + Vision)
+    💬 Answer Agent:	Dùng Qwen3 sinh câu trả lời (RAG)
 
-3. Quy trình hoạt động
+4. Quy trình hoạt động
     (1) Người dùng upload tài liệu
-    → Docling phân tích → sinh text, tables, figures, formulas
+        → Docling phân tích → sinh text, tables, figures, formulas
 
     (2) Tạo tác tử (agent)
-    → Hệ thống xây dựng FAISS index
-    → Tạo các embedding text + công thức
-    → Nhúng hình ảnh (Qwen3-VL captioning)
+        → Hệ thống xây dựng FAISS index
+        → Tạo các embedding text + công thức
+        → Nhúng hình ảnh (Qwen3-VL captioning)
 
     (3) Người dùng đặt câu hỏi (VN/EN)
-    → Orchestrator phát hiện ngôn ngữ
-    → Xác định cần truy xuất: văn bản, công thức hay hình ảnh
-    → Chuyển yêu cầu cho Retrieval Agents
+        → Orchestrator phát hiện ngôn ngữ
+        → Xác định cần truy xuất: văn bản, công thức hay hình ảnh
+        → Chuyển yêu cầu cho Retrieval Agents
 
     (4) Hợp nhất kết quả
-    → Fusion Agent chuẩn hoá, xếp hạng, trộn nhiều nguồn
+        → Fusion Agent chuẩn hoá, xếp hạng, trộn nhiều nguồn
 
     (5) Qwen3 sinh câu trả lời (RAG)
-    → Dựa trên dữ liệu truy xuất
-    → Trả bằng tiếng Việt hoặc tiếng Anh, tuỳ thói quen ngôn ngữ của người dùng
+        → Dựa trên dữ liệu truy xuất
+        → Trả bằng tiếng Việt hoặc tiếng Anh, tuỳ thói quen ngôn ngữ của người dùng
 
-4. Công nghệ sử dụng
+5. Công nghệ sử dụng
     Trích xuất PDF: Docling
     Nhận dạng công thức: Pix2Tex
     Caption ảnh: Qwen3-VL
@@ -90,7 +90,7 @@ Mục tiêu:
     Multi-Agent Orchestration: LangGraph
     Giao diện: Upload → Tạo agent → Chat
 
-5. Kết quả đạt được
+6. Kết quả đạt được
     Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
     | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
