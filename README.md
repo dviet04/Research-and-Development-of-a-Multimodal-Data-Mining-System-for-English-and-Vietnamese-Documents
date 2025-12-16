@@ -14,7 +14,7 @@ Mục tiêu:
     🧠 Hoạt động theo mô hình tác tử LangGraph
 
 1. Kiến trúc tổng thể
-Hệ thống gồm các thành phần:
+    Hệ thống gồm các thành phần:
 
     1. Docling — xử lý tài liệu
     - Trích văn bản PDF/docx
@@ -50,13 +50,13 @@ Hệ thống gồm các thành phần:
 
     7. LangGraph — hệ thống đa tác tử
 
-Hệ thống được thiết kế dưới dạng các tác tử:
-🎯 Orchestrator Agent	Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn
-📄 Text Retrieval Agent	Truy xuất văn bản từ FAISS
-🧮 Formula Retrieval Agent	Truy xuất công thức bằng MathBERT
-🖼 Vision Caption Agent	Gọi Qwen3-VL sinh mô tả hình ảnh
-🧪 Fusion Agent	Hợp nhất kết quả truy vấn (Text + Formula + Vision)
-💬 Answer Agent	Dùng Qwen3 sinh câu trả lời (RAG)
+    Hệ thống được thiết kế dưới dạng các tác tử:
+    🎯 Orchestrator Agent	Điều phối pipeline, phát hiện ngôn ngữ, xác định loại truy vấn
+    📄 Text Retrieval Agent	Truy xuất văn bản từ FAISS
+    🧮 Formula Retrieval Agent	Truy xuất công thức bằng MathBERT
+    🖼 Vision Caption Agent	Gọi Qwen3-VL sinh mô tả hình ảnh
+    🧪 Fusion Agent	Hợp nhất kết quả truy vấn (Text + Formula + Vision)
+    💬 Answer Agent	Dùng Qwen3 sinh câu trả lời (RAG)
 
 2. Quy trình hoạt động
     (1) Người dùng upload tài liệu
@@ -79,7 +79,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
     → Dựa trên dữ liệu truy xuất
     → Trả bằng tiếng Việt hoặc tiếng Anh, tuỳ thói quen ngôn ngữ của người dùng
 
-🛠 3. Công nghệ sử dụng
+3. Công nghệ sử dụng
     Trích xuất PDF: Docling
     Nhận dạng công thức: Pix2Tex
     Caption ảnh: Qwen3-VL
@@ -91,7 +91,7 @@ Hệ thống được thiết kế dưới dạng các tác tử:
     Giao diện: Upload → Tạo agent → Chat
 
 4. Kết quả đạt được
-Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
+    Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ dữ liệu SPIQA. Các câu hỏi và trả lời được gom nhóm theo bài báo. Kết quả của các kịch bản thử nghiệm và kết quả tốt nhất của các mô hình sử dụng trong bài báo được mô tả trong bảng sau:
 
     | Mô hình / Kịch bản | Meteor | Rouge-L | BERTScore-F1 | L3Score |
     |-------------------|--------|---------|--------------|---------|
@@ -103,7 +103,7 @@ Bộ dữ liệu được sử dụng để thử nghiệm là Test-A trong bộ
     | Kịch bản 2        | 26.4   | 22.6    | 86.86        | 11.60   |
     | Kịch bản 3        | 40.9   | 30.1    | 88.46        | 59.56   |
 
-Thông lượng:
+    Thông lượng:
 
     | Mô hình / Kịch bản | SPIQA Test-A – Thông lượng |
     |-------------------|---------------------------|
