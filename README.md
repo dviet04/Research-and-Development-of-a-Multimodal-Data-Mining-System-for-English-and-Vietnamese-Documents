@@ -1,14 +1,13 @@
-# Research-and-Development-of-a-Multimodal-Data-Mining-System-for-English-and-Vietnamese-Documents
-📘 Nghiên cứu và phát triển hệ thống khai thác dữ liệu đa phương thức trong tài liệu tiếng Anh và tiếng Việt dựa trên mô hình trí tuệ nhân tạo đa tác tử
+# NGHIÊN CỨU VÀ PHÁT TRIỂN HỆ THỐNG RAG KHAI THÁC DỮ LIỆU ĐA PHƯƠNG THỨC TRONG TÀI LIỆU TIẾNG ANH VÀ TIẾNG VIỆT DỰA TRÊN MÔ HÌNH TRÍ TUỆ NHÂN TẠO ĐA TÁC TỬ
 
-Hệ thống này được thiết kế nhằm phân tích – tách trích – hiểu – truy vấn – hỏi đáp trên các tài liệu học thuật đa phương thức (văn bản, hình ảnh, bảng, sơ đồ, công thức Toán), hỗ trợ tiếng Việt và tiếng Anh, dựa trên kiến trúc AI Multi-Agent (đa tác tử) và các mô hình hiện đại.
+Hệ thống này được thiết kế nhằm phân tích – tách trích – hiểu – truy vấn – hỏi đáp trên các tài liệu học thuật đa phương thức (văn bản, hình ảnh, bảng, sơ đồ, công thức Toán), hỗ trợ tiếng Việt và tiếng Anh, dựa trên kiến trúc AI Multi-Agent và các mô hình ngôn ngữ lớn.
 Mục tiêu:
 
 - 📄 Hiểu nội dung văn bản
 - 🧮 Nhận diện & chuyển đổi công thức (OCR → LaTeX)
 - 🖼 Phân tích hình ảnh và sinh mô tả
 - 🔍 Xây dựng cơ sở tri thức từ tài liệu
-- 💬 Trả lời câu hỏi bằng RAG (Retrieval-Augmented Generation)
+- 💬 Trả lời câu hỏi bằng RAG
 - ⚡ Đa ngôn ngữ (Việt/Anh)
 - 🧠 Hoạt động theo mô hình tác tử LangGraph
 
@@ -48,6 +47,8 @@ Hệ thống gồm các thành phần:
    - Hỗ trợ reasoning (enable_thinking)
 
 7. **LangGraph — hệ thống đa tác tử**
+   - Các node được xem là một tác tử
+   - Hệ thống là các nodes được kết nối với cách cạnh (edges) một cách hợp lý
 
 Hệ thống được thiết kế dưới dạng các tác tử:
 
